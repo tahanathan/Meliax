@@ -1,0 +1,245 @@
+@import "tailwindcss";
+@import url('https://fonts.cdnfonts.com/css/lufga');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Cinzel:wght@400..900&family=Italiana&display=swap');
+
+@font-face {
+  font-family: 'Zolina';
+  src: local('Zolina'), url('https://fonts.cdnfonts.com/s/96328/Zolina.woff') format('woff');
+  font-display: swap;
+}
+
+.font-zolina {
+  font-family: 'Zolina', 'Italiana', 'Playfair Display', Georgia, serif !important;
+}
+
+@theme {
+  --font-sans: 'Lufga', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+html, body {
+  font-family: 'Lufga', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.012em;
+  background-color: #D4D9D9; /* Clean neutral light tone as requested */
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
+/* Typography Standards for UI Elements */
+.btn-pill {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  line-height: 1.25;
+  transition: all 0.2s ease-in-out;
+}
+
+.badge-tag {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Dynamic Accent Colors */
+:root {
+  --green-yellow: #a3e635;
+  --prussian-blue: #001f3f;
+  --white: #ffffff;
+  --cerulean: #007ea7;
+  --golden-pollen: #ffc83b;
+
+  --accent-main: #007ea7; /* Cerulean as default interactive accent */
+  --accent-hover: #006688;
+  --accent-text: #ffffff;
+}
+
+/* Custom Theme Color Utilities */
+.bg-prussian { background-color: #001f3f !important; }
+.bg-cerulean { background-color: #007ea7 !important; }
+.bg-greenyellow { background-color: #a3e635 !important; }
+.bg-golden { background-color: #ffc83b !important; }
+
+.text-prussian { color: #001f3f !important; }
+.text-cerulean { color: #007ea7 !important; }
+.text-greenyellow { color: #a3e635 !important; }
+.text-golden { color: #ffc83b !important; }
+
+.border-prussian { border-color: #001f3f !important; }
+.border-cerulean { border-color: #007ea7 !important; }
+.border-greenyellow { border-color: #a3e635 !important; }
+.border-golden { border-color: #ffc83b !important; }
+
+[data-accent="emerald"] {
+  --accent-main: #10b981; /* emerald-500 */
+  --accent-hover: #059669;
+  --accent-text: #ffffff;
+}
+
+[data-accent="cyan"] {
+  --accent-main: #06b6d4; /* cyan-500 */
+  --accent-hover: #0891b2;
+  --accent-text: #ffffff;
+}
+
+[data-accent="coral"] {
+  --accent-main: #f43f5e; /* rose-500 */
+  --accent-hover: #e11d48;
+  --accent-text: #ffffff;
+}
+
+[data-accent="lime"] {
+  --accent-main: #a3e635;
+  --accent-hover: #84cc16;
+  --accent-text: #022c22;
+}
+
+/* Accent Utility Class Overrides for Theme Customization */
+.bg-lime-400 {
+  background-color: var(--accent-main) !important;
+}
+.hover\:bg-lime-300:hover {
+  background-color: var(--accent-hover) !important;
+}
+.text-lime-400, .text-lime-600, .text-lime-700 {
+  color: var(--accent-main) !important;
+}
+.border-lime-400 {
+  border-color: var(--accent-main) !important;
+}
+.fill-lime-400 {
+  fill: var(--accent-main) !important;
+}
+
+/* Custom scrollbar for gallery and lists */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ==========================================================================
+   GLASSMORPHISM DNA STANDARDS (LIGHT & DARK MODES)
+   ========================================================================== */
+
+/* Exact DNA standard as defined by specifications:
+   - Dark Mode: Prussian Blue (rgba(0, 31, 63, 0.4) to 0.6) with blur(15px), 1px solid rgba(255,255,255,0.1), border-radius: 16px, shadow: 0 8px 32px 0 rgba(0,0,0,0.37)
+   - Light Mode: Translucent Surface with blur(15px), 1px solid rgba(255,255,255,0.6), border-radius: 16px, shadow: 0 8px 32px 0 rgba(0,0,0,0.08)
+*/
+
+.glass-card {
+  /* Light Mode */
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+}
+
+.dark .glass-card,
+[data-theme="dark"] .glass-card {
+  /* Dark Mode: Prussian Blue com 40% a 60% de opacidade */
+  background: rgba(0, 31, 63, 0.45);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+}
+
+.dark .glass-panel,
+[data-theme="dark"] .glass-panel {
+  background: rgba(0, 31, 63, 0.55);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-bar {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+}
+
+.dark .glass-bar,
+[data-theme="dark"] .glass-bar {
+  background: rgba(0, 31, 63, 0.50);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+}
+
+.dark .glass-pill,
+[data-theme="dark"] .glass-pill {
+  background: rgba(0, 31, 63, 0.45);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.30);
+}
+
+/* Leaflet map fix */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  z-index: 1;
+  background-color: #020617;
+}
+
+/* Custom Leaflet popup design */
+.custom-leaflet-popup .leaflet-popup-content-wrapper {
+  background: #0f172a;
+  color: #f8fafc;
+  border-radius: 1.25rem;
+  padding: 0.25rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  border: 1px solid #1e293b;
+}
+.custom-leaflet-popup .leaflet-popup-tip {
+  background: #0f172a;
+}

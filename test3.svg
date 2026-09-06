@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="400" height="240">
+  <path d="M 25,55
+           C 35,45 50,45 55,65
+           C 60,85 60,100 45,100
+           C 30,100 25,80 50,60
+           C 70,40 85,40 95,65
+           C 105,90 105,100 90,100
+           C 75,100 75,80 105,55
+           L 165,15
+           L 155,50
+           L 125,35
+           L 165,15"
+        stroke="#007EA7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+</svg>

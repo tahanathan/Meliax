@@ -1,0 +1,10 @@
+{
+  "name": "milea",
+  "description": "Diário e planejador de viagens com mapa interativo, roteiros, fotos, avaliações de 1 a 5 estrelas e check-in via Google Maps com sincronização Firebase em tempo real.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

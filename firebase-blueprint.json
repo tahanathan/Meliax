@@ -1,0 +1,114 @@
+{
+  "entities": {
+    "trips": {
+      "title": "Trip Destination",
+      "description": "User saved and planned travel destinations",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "destination": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" },
+        "status": { "type": "string", "enum": ["visited", "planned", "ongoing", "completed"] },
+        "isFavorite": { "type": "boolean" },
+        "rating": { "type": "number" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "notes": { "type": "string" },
+        "coverImage": { "type": "string" },
+        "imageCredit": { "type": "string" },
+        "gallery": { "type": "array", "items": { "type": "string" } },
+        "category": { "type": "string" },
+        "budget": { "type": "number" },
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          }
+        },
+        "itinerary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "day": { "type": "number" },
+              "time": { "type": "string" },
+              "place": { "type": "string" },
+              "title": { "type": "string" },
+              "description": { "type": "string" },
+              "category": { "type": "string" },
+              "done": { "type": "boolean" },
+              "cost": { "type": "number" },
+              "location": { "type": "string" },
+              "image": { "type": "string" },
+              "imageCredit": { "type": "string" },
+              "coordinates": {
+                "type": "object",
+                "properties": {
+                  "lat": { "type": "number" },
+                  "lng": { "type": "number" }
+                }
+              }
+            }
+          }
+        },
+        "participants": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "checkInsCount": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "title", "destination", "status"]
+    },
+    "checkins": {
+      "title": "Google Maps Check-in",
+      "description": "Detailed place check-ins with timestamps and coordinates",
+      "properties": {
+        "userId": { "type": "string" },
+        "tripId": { "type": "string" },
+        "placeName": { "type": "string" },
+        "address": { "type": "string" },
+        "lat": { "type": "number" },
+        "lng": { "type": "number" },
+        "note": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "googleMapsUrl": { "type": "string" }
+      },
+      "required": ["userId", "placeName", "lat", "lng"]
+    },
+    "usersettings": {
+      "title": "User Preferences and Config",
+      "description": "User preferences including frequent companions, travel types, origin city/country and UI theme settings",
+      "properties": {
+        "userId": { "type": "string" },
+        "theme": { "type": "string" },
+        "accentColor": { "type": "string" },
+        "originCity": { "type": "string" },
+        "originCountry": { "type": "string" },
+        "displayName": { "type": "string" },
+        "currency": { "type": "string" },
+        "mapStyle": { "type": "string" },
+        "travelTypes": { "type": "array", "items": { "type": "string" } },
+        "frequentCompanions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "relationship": { "type": "string" },
+              "email": { "type": "string" }
+            }
+          }
+        },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId"]
+    }
+  }
+}
